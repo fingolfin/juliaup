@@ -187,10 +187,7 @@ jobs:
         toolchain: ${{matrix.toolchain}}
         target: ${{matrix.target}}
     - name: Test
-      uses: clechasseur/rs-cargo@v2
-      with:
-        command: test
-        args: --target ${{matrix.target}} --features ${{matrix.features}}
+      run: cargo test --target ${{matrix.target}} --features ${{matrix.features}}
       env:
         CARGO_TARGET_x86_64-unknown-linux-musl: ${{matrix.rustflags}}
         CARGO_TARGET_i686-unknown-linux-musl: ${{matrix.rustflags}}
